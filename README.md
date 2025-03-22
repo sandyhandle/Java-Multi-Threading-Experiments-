@@ -25,4 +25,30 @@ As a **backend developer** working on scalable and high-performance applications
 🔹 Optimize performance with profiling tools   
 🔹 Explore Reactive Programming with Project Reactor    
 
+# 1. Java Concurrency & Multithreading
+I have completed a YouTube tutorial on Java Threads and have learned the following concepts:
+
+✔️ **Use of Runnable**  
+✔️ **What is a Daemon Thread?**  
+✔️ **Synchronized Keyword**  
+✔️ **Race Conditions**  
+✔️ **What is Thread Safety?**  
+✔️ **Volatile Keyword**  
+✔️ **Producer-Consumer Pattern Problem**  
+✔️ **What is notify() and notifyAll()?**  
+✔️ **Thread States**  
+✔️ **yield() Method**  
+✔️ **Thread Sleep**  
+✔️ **wait() Method**  
+✔️ **Interrupted Exception**  
+✔️ **Thread Join**  
+✔️ **Thread Priority**  
+✔️ **Thread Scheduler**  
+✔️ **Preemptive Scheduling**  
+✔️ **Time-Sliced or Round-Robin Scheduling**  
+✔️ **Deadlock in Java**  
+✔️ **Java Program to Demonstrate Deadlock**  
+
+[Watch the YouTube Tutorial Here](https://www.youtube.com/watch?v=WldMTtUWqTg&t=661s)
+
 🚀 **Stay tuned for updates!**
