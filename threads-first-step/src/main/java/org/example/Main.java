@@ -1,5 +1,8 @@
 package org.example;
 
+import javax.swing.table.JTableHeader;
+import java.sql.SQLOutput;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -54,10 +57,53 @@ public class Main {
             if(Thread.State.TERMINATED == state) break;
         }
 
+        // Thread Join
+
+        Thread threadJoin = new Thread(new Thread( () -> {
+            System.out.println(Thread.currentThread());
+        }), "Thread Join");
+
+        threadJoin.start();
+        try {
+            threadJoin.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
 
+        // Dead Lock Situation
 
+        StringBuffer lock1 = new StringBuffer("Lock1");
+        StringBuffer lock2 = new StringBuffer("Lock2");
 
+        Thread threadLockDemo1 = new Thread( () -> {
+            synchronized (lock1){ // this will get the lock 1 first
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                synchronized (lock2){  // this will fight for the lock 2 which is currently with the thread 2.
+                    System.out.println("Lock Acquired");
+                }
+        }
+        }, "Thread Demo 1");
+
+        Thread threadLockDemo2 = new Thread( () -> {
+            synchronized (lock2){ // this will get the lock 2 first
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                synchronized (lock1){ // this will fight for the lock 1 which is currently with the thread 1.
+                    System.out.println("Lock Acquired");
+                }
+            }
+        }, "Thread Demo 2");
+
+        threadLockDemo1.start();
+        threadLockDemo2.start();
 
         System.out.println( "Main thread End");
     }
