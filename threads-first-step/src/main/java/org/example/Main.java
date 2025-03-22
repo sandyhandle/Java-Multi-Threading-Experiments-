@@ -19,6 +19,27 @@ public class Main {
         // threads are asynchronous by nature.
 
         thread2.start();
+        Stack s1 = new Stack(100);
+        new Thread(() -> {
+
+            for (int i = 0; i < 10; i++) {
+                System.out.println("pushed item " + i);
+                s1.push(i);
+            }
+        }, "Pusher").start();
+
+
+
+
+        new Thread(() ->  {
+
+            for (int i = 0; i < 10; i++){
+                int s = s1.pop();
+                System.out.println(s);
+            }
+        }, "Popper").start();
+
+
 
         System.out.println( "Main thread End");
     }
