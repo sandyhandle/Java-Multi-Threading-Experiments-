@@ -27,10 +27,6 @@ public class Main {
                 s1.push(i);
             }
         }, "Pusher").start();
-
-
-
-
         new Thread(() ->  {
 
             for (int i = 0; i < 10; i++){
@@ -38,6 +34,28 @@ public class Main {
                 System.out.println(s);
             }
         }, "Popper").start();
+
+
+
+        // thread state
+        Thread threadState = new Thread(new Thread( () -> {
+            try {
+                Thread.sleep(1);
+                for(int i = 0; i < 10; i++);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }, "Thread State Demo"));
+        threadState.start();
+
+        while (true){
+            Thread.State state = threadState.getState();
+            System.out.println(state);
+            if(Thread.State.TERMINATED == state) break;
+        }
+
+
+
 
 
 
